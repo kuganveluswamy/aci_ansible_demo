@@ -10,8 +10,8 @@
       host: "{{ ansible_host }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      tenant: Tenant-1
-      description: Tenant-1 description
+      tenant: Tenant_1
+      description: Tenant_1 description
       state: present
       validate_certs: no
     delegate_to: localhost
@@ -21,8 +21,8 @@
       host: "{{ ansible_host }}"
       username: "{{ username }}"
       password: "{{ password }}"
-      tenant: Tenant-2
-      description: Tenant-2 description
+      tenant: Tenant_2
+      description: Tenant_2 description
       state: present
       validate_certs: no
     delegate_to: localhost
