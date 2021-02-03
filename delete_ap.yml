@@ -1,0 +1,29 @@
+---
+- name: ACI Remove AP from TENANTs
+  hosts: aci_demo
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - name: Create Tenant_1
+    aci_tenant:
+      host: "{{ ansible_host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: Tenant_1
+      description: Tenant_1 description
+      state: present
+      validate_certs: no
+    delegate_to: localhost
+
+  - name: Delete AP_1 under Tenant_1
+    aci_ap:
+      host: "{{ ansible_host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: Tenant_1
+      ap: AP_1
+      description: AP_1 description
+      state: absent
+      validate_certs: no
+    delegate_to: localhost
