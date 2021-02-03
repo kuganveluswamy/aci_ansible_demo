@@ -1,5 +1,5 @@
 ---
-- name: ACI ADD TENANTs
+- name: ACI ADD APPLICATION PROFILE UNDER TENANT
   hosts: aci_demo
   connection: local
   gather_facts: no
