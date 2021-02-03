@@ -1,0 +1,28 @@
+---
+- name: ACI ADD TENANTs
+  hosts: aci_demo
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - name: Create Tenant_1
+    aci_tenant:
+      host: "{{ ansible_host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: Tenant-1
+      description: Tenant-1 description
+      state: present
+      validate_certs: no
+    delegate_to: localhost
+
+  - name: Create Tenant_2
+    aci_tenant:
+      host: "{{ ansible_host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: Tenant-2
+      description: Tenant-2 description
+      state: present
+      validate_certs: no
+    delegate_to: localhost

@@ -1,0 +1,26 @@
+---
+- name: ACI REMOVE TENANTs
+  hosts: aci_demo
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - name: Delete Tenant_1
+    aci_tenant:
+      host: "{{ ansible_host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: Tenant-1
+      state: absent
+      validate_certs: no
+    delegate_to: localhost
+  
+  - name: Delete Tenant_2
+    aci_tenant:
+      host: "{{ ansible_host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+      tenant: Tenant-2
+      state: absent
+      validate_certs: no
+    delegate_to: localhost
